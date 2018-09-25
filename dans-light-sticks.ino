@@ -115,7 +115,7 @@ void setup() {
 
 // List of patterns to cycle through.  Each is defined as a separate function below.
 typedef void (*SimplePatternList[])();
-SimplePatternList gPatterns = { rainbow, rainbowWithGlitter, confetti, sinelon, juggle, bpm };
+SimplePatternList gPatterns = { lightning, rainbow, rainbowWithGlitter, confetti, sinelon, juggle, bpm };
 uint8_t numPatterns = ARRAY_SIZE(gPatterns);
 
 uint8_t gCurrentPatternNumber = 0; // Index number of which pattern is current
@@ -246,5 +246,11 @@ void juggle() {
     leds[beatsin16( i+7, 0, NUM_LEDS-1 )] |= CHSV(dothue, 200, 255);
     dothue += 32;
   }
+}
+
+void lightning() {
+  fill_solid( leds, NUM_LEDS, CRGB(0, 0, 0));
+  addGlitter(80);
+  
 }
 
